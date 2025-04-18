@@ -19,12 +19,21 @@ const corsOptions = {
 
 app.use(cors(corsOptions));
 
-// Remove this middleware as it's overriding the cors settings
-// app.use((req, res, next) => {
-//     res.setHeader('Access-Control-Allow-Origin', 'https://portfolio-graphic-design-umber.vercel.app');
-//     res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
-//     next();
-// });
+if (process.env.NODE_ENV === 'development') {
+    app.use(morgan('dev'));
+} else {
+    app.use(morgan('combined'));
+}
+
+if (process.env.NODE_ENV === 'production') {
+    app.use((req, res, next) => {
+        res.setHeader('Access-Control-Allow-Origin', 'https://portfolio-graphic-design-umber.vercel.app');
+        res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+        next();
+    });
+}
+
+
 
 app.use(morgan('dev'));
 app.use(express.json());
