@@ -48,9 +48,15 @@ connection();
 // Routes
 const projectRoutes = require('../routes/projectRoutes');
 const skillRoutes = require('../routes/skillRoutes');
+const toolRoutes = require('../routes/toolRoutes');
+const experienceRoutes = require('../routes/experienceRoutes');
+const certificateRoutes = require('../routes/certificateRoutes');
 
 app.use('/api/projects', projectRoutes);
 app.use('/api/skills', skillRoutes);
+app.use('/api/tools', toolRoutes);
+app.use('/api/experiences', experienceRoutes);
+app.use('/api/certificates', certificateRoutes);
 
 // Health check route
 app.get('/', (req, res) => {
