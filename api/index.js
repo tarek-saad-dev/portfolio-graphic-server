@@ -56,10 +56,11 @@ const connection = require('../conn/connection');
 connection();
 
 // Routes
-
 const projectRoutes = require('../routes/projectRoutes');
+const skillRoutes = require('../routes/skillRoutes');
 
 app.use('/api/projects', projectRoutes);
+app.use('/api/skills', skillRoutes);
 
 // Health check route
 app.get('/', (req, res) => {
