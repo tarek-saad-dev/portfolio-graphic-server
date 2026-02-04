@@ -3,7 +3,10 @@
     "version": "1.0.0",
     "main": "api/index.js",
     "scripts": {
-        "dev": "nodemon api/index.js"
+        "dev": "nodemon api/index.js",
+        "seed:gd": "node scripts/seedGDProjects.js",
+        "test:gd": "node scripts/testGDAPI.js",
+        "validate:gd": "node scripts/validateSetup.js"
     },
     "author": "",
     "license": "ISC",

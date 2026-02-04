@@ -1,0 +1,395 @@
+{
+  "info": {
+    "name": "Graphic Design Portfolio API",
+    "description": "Complete API collection for testing GD Portfolio endpoints",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Projects",
+      "item": [
+        {
+          "name": "Get All Projects",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/api/gd/projects",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
+              "path": ["api", "gd", "projects"]
+            }
+          }
+        },
+        {
+          "name": "Get Projects - Paginated",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/api/gd/projects?page=1&limit=6",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
+              "path": ["api", "gd", "projects"],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "key": "limit",
+                  "value": "6"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get Projects - Filter by Category",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/api/gd/projects?category=Brand Identity",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
+              "path": ["api", "gd", "projects"],
+              "query": [
+                {
+                  "key": "category",
+                  "value": "Brand Identity"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get Projects - Search",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/api/gd/projects?q=healthcare",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
+              "path": ["api", "gd", "projects"],
+              "query": [
+                {
+                  "key": "q",
+                  "value": "healthcare"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get Projects - Sort Newest",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/api/gd/projects?sort=newest",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
+              "path": ["api", "gd", "projects"],
+              "query": [
+                {
+                  "key": "sort",
+                  "value": "newest"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get Projects - Sort Oldest",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/api/gd/projects?sort=oldest",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
+              "path": ["api", "gd", "projects"],
+              "query": [
+                {
+                  "key": "sort",
+                  "value": "oldest"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get Projects - Sort A-Z",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/api/gd/projects?sort=az",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
+              "path": ["api", "gd", "projects"],
+              "query": [
+                {
+                  "key": "sort",
+                  "value": "az"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get Projects - Include Drafts",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/api/gd/projects?includeDraft=true",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
+              "path": ["api", "gd", "projects"],
+              "query": [
+                {
+                  "key": "includeDraft",
+                  "value": "true"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get Project by Slug",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/api/gd/projects/health-care-awareness-campaign",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
+              "path": ["api", "gd", "projects", "health-care-awareness-campaign"]
+            }
+          }
+        },
+        {
+          "name": "Get Project - Branding Identity",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/api/gd/projects/branding-identity-kit",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
+              "path": ["api", "gd", "projects", "branding-identity-kit"]
+            }
+          }
+        },
+        {
+          "name": "Get Project - Social Media",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/api/gd/projects/social-media-product-launch",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
+              "path": ["api", "gd", "projects", "social-media-product-launch"]
+            }
+          }
+        },
+        {
+          "name": "Create Project",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"slug\": \"test-project\",\n  \"title\": \"Test Project\",\n  \"category\": \"Web Design\",\n  \"shortDescription\": \"A test project for API validation\",\n  \"story\": \"This is a test project created to validate the API endpoints. It demonstrates the complete data structure including all required fields and optional arrays for gallery images and mockups.\",\n  \"year\": 2024,\n  \"role\": \"Full Stack Designer\",\n  \"tools\": [\"Figma\", \"Adobe XD\"],\n  \"tags\": [\"web\", \"ui-design\", \"test\"],\n  \"coverImage\": {\n    \"url\": \"https://images.unsplash.com/photo-1561070791-2526d30994b5?w=1200&h=800&fit=crop\",\n    \"alt\": \"Test project cover image\",\n    \"width\": 1200,\n    \"height\": 800\n  },\n  \"gallery\": {\n    \"sliderImages\": [\n      {\n        \"url\": \"https://images.unsplash.com/photo-1572044162444-ad60f128bdea?w=1920&h=1080&fit=crop\",\n        \"alt\": \"Slider image 1\",\n        \"caption\": \"First slider image\",\n        \"width\": 1920,\n        \"height\": 1080,\n        \"order\": 1\n      }\n    ],\n    \"verticalImages\": []\n  },\n  \"mockups\": [],\n  \"isFeatured\": false,\n  \"status\": \"published\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/gd/projects",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
+              "path": ["api", "gd", "projects"]
+            }
+          }
+        },
+        {
+          "name": "Update Project",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"Updated Test Project Title\",\n  \"isFeatured\": true\n}"
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/gd/projects/test-project",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
+              "path": ["api", "gd", "projects", "test-project"]
+            }
+          }
+        },
+        {
+          "name": "Delete Project",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/api/gd/projects/test-project",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
+              "path": ["api", "gd", "projects", "test-project"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Combined Queries",
+      "item": [
+        {
+          "name": "Category + Search + Sort",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/api/gd/projects?category=Campaign Design&q=health&sort=newest",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
+              "path": ["api", "gd", "projects"],
+              "query": [
+                {
+                  "key": "category",
+                  "value": "Campaign Design"
+                },
+                {
+                  "key": "q",
+                  "value": "health"
+                },
+                {
+                  "key": "sort",
+                  "value": "newest"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Search + Pagination + Sort",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/api/gd/projects?q=design&page=1&limit=6&sort=az",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
+              "path": ["api", "gd", "projects"],
+              "query": [
+                {
+                  "key": "q",
+                  "value": "design"
+                },
+                {
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "key": "limit",
+                  "value": "6"
+                },
+                {
+                  "key": "sort",
+                  "value": "az"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Error Cases",
+      "item": [
+        {
+          "name": "Invalid Slug Format",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/api/gd/projects/Invalid_Slug_Format",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
+              "path": ["api", "gd", "projects", "Invalid_Slug_Format"]
+            }
+          }
+        },
+        {
+          "name": "Project Not Found",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/api/gd/projects/non-existent-project",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
+              "path": ["api", "gd", "projects", "non-existent-project"]
+            }
+          }
+        },
+        {
+          "name": "Create with Invalid Data",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"slug\": \"invalid slug with spaces\",\n  \"title\": \"Test\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/gd/projects",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
+              "path": ["api", "gd", "projects"]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
