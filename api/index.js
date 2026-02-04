@@ -11,10 +11,29 @@ require('dotenv').config();
 const app = express();
 
 // Middleware
+const allowedOrigins = [
+    'http://localhost:5001',
+    'http://localhost:3000',
+    'https://portofolio-graphic-frontend.vercel.app',
+    'https://portfolio-graphic-design-umber.vercel.app'
+];
+
 const corsOptions = {
-    origin: ['http://localhost:5001', 'https://portfolio-graphic-design-umber.vercel.app'],
-    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-    credentials: true, // if needed for cookies
+    origin: function(origin, callback) {
+        if (!origin) return callback(null, true);
+
+        if (allowedOrigins.indexOf(origin) !== -1) {
+            callback(null, true);
+        } else if (origin.match(/^https:\/\/.*\.vercel\.app$/)) {
+            callback(null, true);
+        } else {
+            callback(new Error('Not allowed by CORS'));
+        }
+    },
+    methods: ['GET', 'HEAD', 'PUT', 'PATCH', 'POST', 'DELETE', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With', 'Accept', 'Origin'],
+    credentials: true,
+    optionsSuccessStatus: 200
 };
 
 app.use(cors(corsOptions));
@@ -25,17 +44,6 @@ if (process.env.NODE_ENV === 'development') {
     app.use(morgan('combined'));
 }
 
-if (process.env.NODE_ENV === 'production') {
-    app.use((req, res, next) => {
-        res.setHeader('Access-Control-Allow-Origin', 'https://portfolio-graphic-design-umber.vercel.app');
-        res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
-        next();
-    });
-}
-
-
-
-app.use(morgan('dev'));
 app.use(express.json());
 
 app.use(bodyParser.json());
