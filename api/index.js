@@ -14,6 +14,7 @@ const app = express();
 const allowedOrigins = [
     'http://localhost:5001',
     'http://localhost:3000',
+    'http://localhost:3001',
     'https://portofolio-graphic-frontend.vercel.app',
     'https://portfolio-graphic-design-umber.vercel.app'
 ];
